@@ -185,7 +185,7 @@ docker swarm init
 docker node ls
 ```
 
-### 服务
+### swarm服务
 
 #### 查看服务列表
 ```
@@ -202,4 +202,21 @@ docker service create --name nginx -p 80:80 nginx
 docker service ps nginx
 ```
 
+### 伸缩服务
+```
+docker service scale nginx=2
+```
+
+### 删除服务
+
+```
+docker service rm nginx
+```
+
 ## ELK
+
+<p>
+ELK 的全称是 Elasticsearch、Logstash、kibana，是目前最流行的日志采集、转换、存储和查看工具。
+</p>
+<a href="elk.md">部署ELK的compose编排文件</a>
+[我的小窝](http://www.lunarsf.club "我的个人网站")
