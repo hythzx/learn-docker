@@ -171,6 +171,7 @@ docker-compose rm
 ```bash
 docker run -d -p 5000:5000 -v /data/docker-registry:/var/lib/registry --restart=always --name registry registry
 ```
+*注意: 使用自己搭建的docker registry需要在docker daemo里添加insecure-registries配置*
 
 ## Docker swarm
 
