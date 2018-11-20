@@ -213,10 +213,30 @@ docker service scale nginx=2
 docker service rm nginx
 ```
 
+### 创建busybox服务
+
+```
+docker service create --name client -d --network ELK_ms_net  busybox sh -c "while true; do sleep 3600; done"
+```
+
 ## ELK
 
 <p>
 ELK 的全称是 Elasticsearch、Logstash、kibana，是目前最流行的日志采集、转换、存储和查看工具。
 </p>
 <a href="elk.md">部署ELK的compose编排文件</a>
-[我的小窝](http://www.lunarsf.club "我的个人网站")
+
+
+## 部署gitlab
+
+```
+sudo docker run --detach \
+    --hostname gitlab-demo.nj-agile.com \
+    --publish 80:80 \
+    --name gitlab \
+    --restart always \
+    --volume /srv/gitlab/config:/etc/gitlab:Z \
+    --volume /srv/gitlab/logs:/var/log/gitlab:Z \
+    --volume /srv/gitlab/data:/var/opt/gitlab:Z \
+    gitlab/gitlab-ce:latest
+```
